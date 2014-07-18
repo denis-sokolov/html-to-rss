@@ -37,9 +37,21 @@ app('/feed').index(function(){
 }).item(function(data){
   return {
     title: data,
-    text: 'This is an article with data ' + data
+    html: 'This is an article with data ' + data
   };
 });
 ```
 
+Fully friendly items:
+
+```javascript
+app('/feed').index('http://example.com/articles', function($){
+  return $('.article h1 a');
+}).item(function($){
+  return {
+    title: $('h1'),
+    html: $('.text')
+  };
+});
+```
 
