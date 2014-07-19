@@ -25,11 +25,22 @@ app.listen(3000);
 
 ### Configuring items
 
-`.index` callback must return a list of data elements.
-Each data element represents an RSS item with custom data that will be
+`.index` callback must return a list of feed elements.
+If `.item` callback is provided, each data element will be
 passed to `.item` callback for details generation.
 
-Fully raw items:
+Full generation upfront:
+
+```javascript
+app('/feed').index(function(){
+  return [
+    { title: 'title1', html: 'html1' },
+    { title: 'title2', html: 'html2' }
+  ];
+});
+```
+
+Fully raw per-item:
 
 ```javascript
 app('/feed').index(function(){
