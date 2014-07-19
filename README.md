@@ -29,6 +29,8 @@ app.listen(3000);
 If `.item` callback is provided, each data element will be
 passed to `.item` callback for details generation.
 
+All callback may return promises instead of values.
+
 Full generation upfront:
 
 ```javascript
